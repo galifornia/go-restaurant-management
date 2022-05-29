@@ -3,13 +3,25 @@ package routes
 import (
 	"time"
 
+	"github.com/galifornia/go-restaurant-management/models"
 	"github.com/gofiber/fiber/v2"
 	"github.com/golang-jwt/jwt/v4"
 )
 
 func setupUserRoutes(router fiber.Router) {
 	userApi := router.Group("/user")
+	userApi.Get("/", getUser)
+}
+
+func setupUserUnrestrictedRoutes(router fiber.Router) {
+	userApi := router.Group("/user")
 	userApi.Post("/login", login)
+}
+
+func getUser(c *fiber.Ctx) error {
+	var user models.User
+	// TODO: call database
+	return c.JSON(fiber.Map{"user": user})
 }
 
 func login(c *fiber.Ctx) error {
