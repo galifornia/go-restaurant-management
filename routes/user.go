@@ -49,5 +49,12 @@ func login(c *fiber.Ctx) error {
 		return c.SendStatus(fiber.StatusInternalServerError)
 	}
 
+	c.Cookie(&fiber.Cookie{
+		Name:     "token",
+		HTTPOnly: true,
+		Value:    t,
+		Expires:  time.Now().Add(time.Hour * 72),
+	})
+
 	return c.JSON(fiber.Map{"token": t})
 }
