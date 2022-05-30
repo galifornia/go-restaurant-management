@@ -1,0 +1,6 @@
+# executable
+go-restaurant-management
+# makefile .pid file
+*.pid
+# vscode crap
+.vscode/
