@@ -4,3 +4,5 @@ go-restaurant-management
 *.pid
 # vscode crap
 .vscode/
+# database
+data.db
