@@ -16,7 +16,7 @@ func OpenDB() *gorm.DB {
 	}
 
 	// Migrate the schema
-	DB.AutoMigrate(&models.User{}, &models.Claims{})
+	DB.AutoMigrate(&models.User{})
 
 	return DB
 }
