@@ -6,3 +6,5 @@ go-restaurant-management
 .vscode/
 # database
 data.db
+# config environment variables
+.env
