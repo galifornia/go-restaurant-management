@@ -6,6 +6,13 @@ import (
 	"gorm.io/gorm"
 )
 
+type UserType int
+
+const (
+	ADMIN  UserType = 0
+	WAITER          = 1
+)
+
 // User represents a User schema
 type User struct {
 	gorm.Model
@@ -13,6 +20,9 @@ type User struct {
 	Email    string    `json:"email" gorm:"unique"`
 	Username string    `json:"username" gorm:"unique"`
 	Password string    `json:"password"`
+	Avatar   string    `json:"avatar"`
+	Phone    string    `json:"phone"`
+	Type     UserType  `json:"type"`
 }
 
 // UserErrors represent the error format for user routes
