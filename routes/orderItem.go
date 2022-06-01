@@ -10,7 +10,9 @@ func setupOrderItemRoutes(router fiber.Router) {
 	restricted := router.Group("/order-item")
 	restricted.Use(middleware.SecureAuth())
 
+	restricted.Get("/:id", controllers.GetAllOrderItems)
 	restricted.Get("/:id", controllers.GetOrderItem)
+	restricted.Get("/order/:id", controllers.GetOrderItemsByOrder)
 	restricted.Post("/", controllers.NewOrderItem)
 	restricted.Patch("/:id", controllers.UpdateOrderItem)
 	restricted.Delete("/:id", controllers.DeleteOrderItem)

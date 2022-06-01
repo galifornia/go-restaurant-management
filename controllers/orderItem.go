@@ -2,7 +2,15 @@ package controllers
 
 import "github.com/gofiber/fiber/v2"
 
+func GetAllOrderItems(c *fiber.Ctx) error {
+	return nil
+}
+
 func GetOrderItem(c *fiber.Ctx) error {
+	return nil
+}
+
+func GetOrderItemsByOrder(c *fiber.Ctx) error {
 	return nil
 }
 

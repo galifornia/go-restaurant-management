@@ -9,7 +9,8 @@ import (
 func setupMenuRoutes(router fiber.Router) {
 	menuApi := router.Group("/menu")
 
-	menuApi.Get("/", controllers.GetMenu)
+	menuApi.Get("/", controllers.GetAllMenus)
+	menuApi.Get("/:id", controllers.GetMenu)
 
 	restricted := router.Group("/menu")
 	restricted.Use(middleware.SecureAuth())
