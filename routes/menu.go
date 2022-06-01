@@ -1,17 +1,19 @@
 package routes
 
 import (
-	"github.com/galifornia/go-restaurant-management/models"
+	"github.com/galifornia/go-restaurant-management/controllers"
+	"github.com/galifornia/go-restaurant-management/middleware"
 	"github.com/gofiber/fiber/v2"
 )
 
 func setupMenuRoutes(router fiber.Router) {
 	menuApi := router.Group("/menu")
-	menuApi.Get("/", getMenu)
-}
 
-func getMenu(c *fiber.Ctx) error {
-	var menu models.Menu
-	// TODO: call database
-	return c.JSON(fiber.Map{"menu": menu})
+	menuApi.Get("/", controllers.GetMenu)
+
+	restricted := router.Group("/menu")
+	restricted.Use(middleware.SecureAuth())
+
+	restricted.Post("/", controllers.AddItemToMenu)
+	restricted.Delete("/:id", controllers.RemoveItemFromMenu)
 }
