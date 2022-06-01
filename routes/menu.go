@@ -15,6 +15,8 @@ func setupMenuRoutes(router fiber.Router) {
 	restricted := router.Group("/menu")
 	restricted.Use(middleware.SecureAuth())
 
-	restricted.Post("/", controllers.AddItemToMenu)
+	restricted.Post("/", controllers.NewMenu)
+	restricted.Delete("/", controllers.DeleteMenu)
+	restricted.Post("/:id", controllers.AddItemToMenu)
 	restricted.Delete("/:id", controllers.RemoveItemFromMenu)
 }
