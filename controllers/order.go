@@ -59,7 +59,7 @@ func UpdateOrder(c *fiber.Ctx) error {
 		return c.Status(500).JSON(fiber.Map{"status": "error"})
 	}
 
-	var updatedOrder models.Food
+	var updatedOrder models.Order
 
 	err := c.BodyParser(&updatedOrder)
 	if err != nil {
