@@ -9,7 +9,7 @@ func SetupRoutes(app *fiber.App) {
 
 	setupFoodRoutes(api)
 	setupInvoiceRoutes(api)
-	setupNoteRoutes(api)
+	setupFoodMenuRoutes(api)
 	setupMenuRoutes(api)
 	setupUserRoutes(api)
 	setupOrderRoutes(api)

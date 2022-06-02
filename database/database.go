@@ -16,7 +16,7 @@ func OpenDB() *gorm.DB {
 	}
 
 	// Migrate the schema
-	DB.AutoMigrate(&models.User{}, &models.Food{}, &models.Invoice{}, &models.Order{}, &models.OrderItem{}, &models.Table{}, &models.Menu{}, &models.Note{})
+	DB.AutoMigrate(&models.User{}, &models.Food{}, &models.Invoice{}, &models.Order{}, &models.OrderItem{}, &models.Table{}, &models.Menu{}, &models.FoodMenu{})
 
 	return DB
 }
