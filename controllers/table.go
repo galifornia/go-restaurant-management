@@ -7,7 +7,7 @@ import (
 	"github.com/google/uuid"
 )
 
-func GetTables(c *fiber.Ctx) error {
+func GetAllTables(c *fiber.Ctx) error {
 	var tables []models.Table
 	database.DB.Find(&tables)
 	return c.JSON(tables)
